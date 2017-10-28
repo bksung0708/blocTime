@@ -1,6 +1,16 @@
+<div class="intro" align ="center">
+  <p style="font-family:Comic Sans MS; color:#555555; font-size: 20px;">Start a work session for 25 minutes!
+    <br>When you finish one session, you get 5 minutes break.
+    <br>Every 4th work session you complete will get you a 30 minute break.
+    <br>Let's get to work!</p>
+</div>
 <div class="start" align="center">
-  <p style="font-family:Comic Sans MS; color:#555555; font-size: 52px;">
+  <p ng-hide="onBreak" style="font-family:Comic Sans MS; color:#555555; font-size: 52px;">
     {{counter | secondsToDateTime | date:'mm:ss'}}
-    <button class="button" ng-bind="buttonText" ng-click="start()"></button>
+    <button class="button" ng-bind="buttonText" ng-click="workSession()" ng-hide="onBreak"></button>
+  </p>
+  <p ng-show="onBreak" style="font-family:Comic Sans MS; color:#555555; font-size: 52px;">
+    {{counter | secondsToDateTime | date:'mm:ss'}}
+    <button class="button" ng-bind="buttonText" ng-click="breakSession()" ng-show="onBreak"></button>
   </p>
 </div>
