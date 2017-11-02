@@ -1,3 +1,14 @@
+<div class="create-tasks">
+  <h3 class="task-title">Task History</h3>
+  <div class="task-description" ng-repeat="task in tasks">
+    {{ task.description }}
+  </div>
+  <div class="form-group">
+    <input type="text" placeholder="Enter a task description" class="form-control" ng-model="content">
+  </div>
+  <button class="btn btn-primary pull-left" type="button" ng-click="newTask()">Create</button>
+</div>
+
 <div class="intro" align ="center">
   <p style="font-family:Comic Sans MS; color:#555555; font-size: 20px;">Start a work session for 25 minutes!
     <br>When you finish one session, you get 5 minutes break.

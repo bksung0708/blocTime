@@ -1,5 +1,10 @@
 (function() {
-    function HomeCtrl($scope, $timeout) {
+    function HomeCtrl(Tasks, $scope, $timeout) {
+      $scope.tasks = Tasks.all;
+      $scope.newTask = function() {
+          Tasks.createTasks($scope.content);
+      };
+
       $scope.counter = 1500; // 25 minutes
       $scope.buttonText = "start";
       $scope.onBreak = false;
@@ -46,6 +51,7 @@
         }
       }
 
+      // start a break session
       $scope.breakSession = function() {
         if ($scope.buttonText == "start") {
           $scope.buttonText = "reset";
@@ -56,9 +62,18 @@
           $scope.stop();
         }
       }
+      // $scope.play = function() {
+      //   var mySound = new buzz.sound( "/sounds/ding2.mp3", {
+      //     preload: true
+      //   });
+      // }
+      // buzz sound
+      var mySound = new buzz.sound( "/sounds/ding.mp3", {
+        preload: true
+      });
     }
 
     angular
         .module('blocTime')
-        .controller('HomeCtrl', ['$scope', '$timeout', HomeCtrl]);
+        .controller('HomeCtrl', ['Tasks', '$scope', '$timeout', HomeCtrl]);
 })();
