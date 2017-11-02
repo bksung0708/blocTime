@@ -7,9 +7,8 @@
 
     return {
       all: tasks,
-      // remaining logic for tasks
-      createTasks: function(content){
-        tasks.$add({description: content});
+      createTasks: function(content, count){
+        tasks.$add({description: content, order: count});
       }
     };
   }

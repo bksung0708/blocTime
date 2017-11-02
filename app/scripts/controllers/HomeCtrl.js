@@ -1,8 +1,10 @@
 (function() {
     function HomeCtrl(Tasks, $scope, $timeout) {
+      var count = 0;
       $scope.tasks = Tasks.all;
       $scope.newTask = function() {
-          Tasks.createTasks($scope.content);
+          count++;
+          Tasks.createTasks($scope.content, count);
       };
 
       $scope.counter = 1500; // 25 minutes
